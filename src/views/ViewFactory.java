@@ -24,6 +24,14 @@ public class ViewFactory {
 		createStage(fxmlLoader, "Tic-Tac-Toe Game");
 	}
 
+	// Show Tic Tac Toe Game
+	public void showConnectFour(Player player) {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmls/ConnectFour.fxml"));
+		ConnectFourController ConnectFourController = new ConnectFourController(player);
+		fxmlLoader.setController(ConnectFourController);
+		createStage(fxmlLoader, "Connect-Four Game");
+	}
+
 	// Generic: Create Stage
 	private void createStage(FXMLLoader fxmlLoader, String stageTitle) {
 		Scene scene = null;

@@ -19,11 +19,12 @@ public class DashboardController implements Initializable {
 	public TextField NameField;
 	public Button TokenButton_O;
 	public Button TokenButton_X;
-
 	private char token;
 
 	// Game Attributes
 	public Button TicTacToeButton;
+	public Button ConnectFourButton;
+	public Button SudokuGameButton;
 
 	// Default Class Constructor
 	public DashboardController() {
@@ -39,28 +40,52 @@ public class DashboardController implements Initializable {
 
 	// Add Listeners to Buttons on Frame
 	private void addListeners() {
+		// Add Listener to O Token Button
 		TokenButton_O.setOnAction(event -> {
 			this.token = 'O';
-			TokenButton_O.getStyleClass().add("selected-token"); // Apply CSS class to highlight the button
-			TokenButton_X.getStyleClass().remove("selected-token"); // Remove CSS class from the other button
+			TokenButton_O.getStyleClass().add("selected-token"); // Apply CSS Class to Highlight the Button
+			TokenButton_X.getStyleClass().remove("selected-token"); // Remove CSS Class from the Other Button
 		});
+
+		// Add Listener to X Token Button
 		TokenButton_X.setOnAction(event -> {
 			this.token = 'X';
-			TokenButton_X.getStyleClass().add("selected-token"); // Apply CSS class to highlight the button
-			TokenButton_O.getStyleClass().remove("selected-token"); // Remove CSS class from the other button
+			TokenButton_X.getStyleClass().add("selected-token"); // Apply CSS Class to Highlight the Button
+			TokenButton_O.getStyleClass().remove("selected-token"); // Remove CSS Class from the Other Button
 		});
+
+		// "Tic-Tac-Toe" Game Button is Clicked
 		TicTacToeButton.setOnAction(event -> handleTicTacToe());
+		ConnectFourButton.setOnAction(event -> handleConnectFour());
 	}
 
 	// Event: "Tic-Tac-Toe" Button is Clicked
 	private void handleTicTacToe() {
-		// Validate Sufficient Fields are Filled in
+		// Get Name from Name Field
 		String name = NameField.getText().trim();
+
+		// Validate Sufficient Fields are Filled in
 		if (validateName(name) && validateToken()) {
 
+			// Create Player and Display Game Frame
 			Player player = new Player(name, token);
 			closeCurrentWindow();
 			Model.getInstance().getViewFactory().showTicTacToe(player);
+		}
+	}
+
+	// Event: "Tic-Tac-Toe" Button is Clicked
+	private void handleConnectFour() {
+		// Get Name from Name Field
+		String name = NameField.getText().trim();
+
+		// Validate Sufficient Fields are Filled in
+		if (validateName(name) && validateToken()) {
+
+			// Create Player and Display Game Frame
+			Player player = new Player(name, token);
+			closeCurrentWindow();
+			Model.getInstance().getViewFactory().showConnectFour(player);
 		}
 	}
 

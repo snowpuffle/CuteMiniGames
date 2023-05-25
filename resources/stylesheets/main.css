@@ -33,7 +33,7 @@
 .side-label {
     -fx-font-family: 'Pangolin', cursive;
     -fx-font-size: 26.0px;
-    -fx-effect: dropShadow(three-pass-box,rgba(0.0,0.0,0.0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+    -fx-effect: dropShadow(three-pass-box,rgba(0.0,0.0,0.0,0.1), 10.0 , 0.0 , 0.0 , 10.0);
 }
 
 .black-border {
@@ -41,24 +41,38 @@
     -fx-border-width: 3.0px;
 }
 
-.button {
+.regular-button {
     -fx-font-family: 'Pangolin', cursive;
     -fx-font-size: 18.0px;
     -fx-border-color: black;
     -fx-border-width: 3.0px;
     -fx-border-radius: 10.0px;
-     -fx-background-radius: 10.0;
-    -fx-effect: dropShadow(three-pass-box,rgba(0.0,0.0,0.0,0.1), 10.0 , 0.0 , 0.0 ,10.0);   
+    -fx-background-radius: 10.0;
+    -fx-effect: dropShadow(three-pass-box,rgba(0.0,0.0,0.0,0.1), 10.0 , 0.0 , 0.0 , 10.0);   
 }
 
-.button:hover {
+.regular-button:hover {
     -fx-background-color: #ECECEC;
     -fx-cursor: hand;
 }
 
-.button:pressed {
+.regular-button:pressed {
     -fx-background-color: #DDDDDD;
     -fx-background-insets: 0.0;
+}
+
+.button-arrow {
+
+}
+
+.button-arrow:hover {
+	-fx-background-color: #ECECEC;
+    -fx-cursor: hand;
+}
+
+.arrow-box {
+	-fx-border-color: transparent;
+	-fx-effect: dropShadow(three-pass-box,rgba(0.0,0.0,0.0,0.0), 0.0 , 0.0 , 0.0 , 0.0);   
 }
 
 .selected-token {

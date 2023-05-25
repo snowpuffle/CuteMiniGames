@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+	prefWidth="850.0" stylesheets="@../../resources/stylesheets/main.css"
+	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="850.0"
+			styleClass="light-blue-background">
+			<children>
+				<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0"
+					styleClass="dark-blue-background">
+					<children>
+						<VBox prefHeight="200.0" prefWidth="550.0">
+							<children>
+								<HBox alignment="CENTER" prefHeight="100.0"
+									prefWidth="400.0">
+									<children>
+										<ImageView fitHeight="40.0" fitWidth="40.0"
+											pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../../resources/images/theme/uranus.png" />
+											</image>
+											<HBox.margin>
+												<Insets right="15.0" />
+											</HBox.margin>
+										</ImageView>
+										<Label text="Connect Four Game">
+											<font>
+												<Font name="Pangolin Regular" size="46.0" />
+											</font>
+										</Label>
+									</children>
+								</HBox>
+							</children>
+						</VBox>
+						<VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+							<children>
+								<Button fx:id="GoBackButton" mnemonicParsing="false"
+									prefHeight="50.0" prefWidth="190.0" text="Return to Main">
+									<graphic>
+										<ImageView fitHeight="30.0" fitWidth="30.0"
+											pickOnBounds="true" preserveRatio="true" translateX="-5.0">
+											<image>
+												<Image url="@../../resources/images/icons/return.png" />
+											</image>
+										</ImageView>
+									</graphic>
+									<styleClass>
+										<String fx:value="regular-button" />
+										<String fx:value="blue-background" />
+									</styleClass>
+								</Button>
+							</children>
+						</VBox>
+					</children>
+				</HBox>
+				<HBox alignment="CENTER" prefHeight="500.0">
+					<children>
+						<VBox alignment="TOP_CENTER" prefHeight="200.0"
+							prefWidth="150.0">
+							<children>
+								<HBox alignment="CENTER" prefHeight="75.0">
+									<children>
+										<Button fx:id="StartButton" mnemonicParsing="false"
+											prefHeight="50.0" prefWidth="130.0" text="Start!">
+											<graphic>
+												<ImageView fitHeight="30.0" fitWidth="30.0"
+													pickOnBounds="true" preserveRatio="true" translateX="-5.0">
+													<image>
+														<Image
+															url="@../../resources/images/icons/shuttle.png" />
+													</image>
+												</ImageView>
+											</graphic>
+											<styleClass>
+												<String fx:value="regular-button" />
+												<String fx:value="blue-background" />
+											</styleClass>
+										</Button>
+									</children>
+								</HBox>
+								<HBox alignment="CENTER" layoutX="10.0" layoutY="198.0"
+									prefHeight="75.0">
+									<children>
+										<Button fx:id="RestartButton" mnemonicParsing="false"
+											prefHeight="50.0" prefWidth="130.0" text="Restart">
+											<graphic>
+												<ImageView fitHeight="30.0" fitWidth="30.0"
+													pickOnBounds="true" preserveRatio="true" translateX="-5.0">
+													<image>
+														<Image
+															url="@../../resources/images/icons/reload.png" />
+													</image>
+												</ImageView>
+											</graphic>
+											<styleClass>
+												<String fx:value="regular-button" />
+												<String fx:value="blue-background" />
+											</styleClass>
+										</Button>
+									</children>
+								</HBox>
+								<HBox alignment="TOP_CENTER" prefHeight="150.0"
+									prefWidth="200.0">
+									<children>
+										<Label fx:id="MessageLabel" alignment="CENTER"
+											contentDisplay="CENTER" text="Welcome to the Game!"
+											textAlignment="CENTER" wrapText="true">
+											<font>
+												<Font name="Pangolin Regular" size="18.0" />
+											</font>
+										</Label>
+									</children>
+									<padding>
+										<Insets top="20.0" />
+									</padding>
+								</HBox>
+							</children>
+							<padding>
+								<Insets top="50.0" />
+							</padding>
+						</VBox>
+						<VBox prefHeight="450.0" prefWidth="450.0">
+							<children>
+								<HBox alignment="TOP_CENTER" fillHeight="false"
+									layoutX="10.0" layoutY="60.0" prefHeight="50.0"
+									prefWidth="350.0">
+									<children>
+										<GridPane fx:id="BoardGame1" alignment="CENTER"
+											prefHeight="375.0" prefWidth="375.0" styleClass="shadow">
+											<columnConstraints>
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+											</columnConstraints>
+											<rowConstraints>
+												<RowConstraints maxHeight="55.0"
+													minHeight="55.0" prefHeight="55.0" valignment="CENTER"
+													vgrow="NEVER" />
+											</rowConstraints>
+											<children>
+												<Button fx:id="ColumnButton_0" maxHeight="50.0"
+													maxWidth="50.0" minHeight="50.0" minWidth="50.0"
+													mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0"
+													GridPane.halignment="CENTER" GridPane.hgrow="NEVER"
+													GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+													<styleClass>
+														<String fx:value="button-arrow" />
+														<String fx:value="dark-blue-background" />
+													</styleClass>
+												</Button>
+												<Button fx:id="ColumnButton_1" layoutX="20.0"
+													layoutY="20.0" maxHeight="50.0" maxWidth="50.0"
+													minHeight="50.0" minWidth="50.0" mnemonicParsing="false"
+													prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1">
+													<styleClass>
+														<String fx:value="button-arrow" />
+														<String fx:value="dark-blue-background" />
+													</styleClass>
+												</Button>
+												<Button fx:id="ColumnButton_2" layoutX="65.0"
+													layoutY="20.0" maxHeight="50.0" maxWidth="50.0"
+													minHeight="50.0" minWidth="50.0" mnemonicParsing="false"
+													prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2">
+													<styleClass>
+														<String fx:value="button-arrow" />
+														<String fx:value="dark-blue-background" />
+													</styleClass>
+												</Button>
+												<Button fx:id="ColumnButton_3" layoutX="110.0"
+													layoutY="20.0" maxHeight="50.0" maxWidth="50.0"
+													minHeight="50.0" minWidth="50.0" mnemonicParsing="false"
+													prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="3">
+													<styleClass>
+														<String fx:value="button-arrow" />
+														<String fx:value="dark-blue-background" />
+													</styleClass>
+												</Button>
+												<Button fx:id="ColumnButton_4" layoutX="155.0"
+													layoutY="20.0" maxHeight="50.0" maxWidth="50.0"
+													minHeight="50.0" minWidth="50.0" mnemonicParsing="false"
+													prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="4">
+													<styleClass>
+														<String fx:value="button-arrow" />
+														<String fx:value="dark-blue-background" />
+													</styleClass>
+												</Button>
+												<Button fx:id="ColumnButton_5" layoutX="200.0"
+													layoutY="20.0" maxHeight="50.0" maxWidth="50.0"
+													minHeight="50.0" minWidth="50.0" mnemonicParsing="false"
+													prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="5">
+													<styleClass>
+														<String fx:value="button-arrow" />
+														<String fx:value="dark-blue-background" />
+													</styleClass>
+												</Button>
+												<Button fx:id="ColumnButton_6" layoutX="245.0"
+													layoutY="20.0" maxHeight="50.0" maxWidth="50.0"
+													minHeight="50.0" minWidth="50.0" mnemonicParsing="false"
+													prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="6">
+													<styleClass>
+														<String fx:value="button-arrow" />
+														<String fx:value="dark-blue-background" />
+													</styleClass>
+												</Button>
+											</children>
+										</GridPane>
+									</children>
+								</HBox>
+								<HBox alignment="TOP_CENTER" fillHeight="false"
+									prefHeight="400.0" prefWidth="350.0">
+									<children>
+										<GridPane fx:id="BoardGame" alignment="CENTER"
+											prefHeight="350.0" prefWidth="375.0" styleClass="shadow">
+											<columnConstraints>
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="55.0" minWidth="55.0"
+													prefWidth="55.0" />
+											</columnConstraints>
+											<rowConstraints>
+												<RowConstraints maxHeight="55.0"
+													minHeight="55.0" prefHeight="55.0" vgrow="SOMETIMES" />
+												<RowConstraints maxHeight="55.0"
+													minHeight="55.0" prefHeight="55.0" vgrow="SOMETIMES" />
+												<RowConstraints maxHeight="55.0"
+													minHeight="55.0" prefHeight="55.0" vgrow="SOMETIMES" />
+												<RowConstraints maxHeight="55.0"
+													minHeight="55.0" prefHeight="55.0" vgrow="SOMETIMES" />
+												<RowConstraints maxHeight="55.0"
+													minHeight="55.0" prefHeight="55.0" vgrow="SOMETIMES" />
+												<RowConstraints maxHeight="55.0"
+													minHeight="55.0" prefHeight="55.0" vgrow="SOMETIMES" />
+											</rowConstraints>
+											<children>
+												<Pane fx:id="GameCell_00" prefHeight="200.0"
+													prefWidth="200.0" styleClass="blue-background"
+													GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+												<Pane fx:id="GameCell_10" layoutX="340.0"
+													layoutY="65.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.rowIndex="1" />
+												<Pane fx:id="GameCell_20" layoutX="340.0"
+													layoutY="120.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.rowIndex="2" />
+												<Pane fx:id="GameCell_30" layoutX="340.0"
+													layoutY="175.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.rowIndex="3" />
+												<Pane fx:id="GameCell_40" layoutX="10.0"
+													layoutY="230.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.rowIndex="4" />
+												<Pane fx:id="GameCell_50" layoutX="10.0"
+													layoutY="285.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.rowIndex="5" />
+												<Pane fx:id="GameCell_01" layoutX="10.0" layoutY="65.0"
+													prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="1" />
+												<Pane fx:id="GameCell_11" layoutX="65.0" layoutY="33.0"
+													prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="1"
+													GridPane.rowIndex="1" />
+												<Pane fx:id="GameCell_21" layoutX="10.0"
+													layoutY="120.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="1"
+													GridPane.rowIndex="2" />
+												<Pane fx:id="GameCell_31" layoutX="10.0"
+													layoutY="175.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="1"
+													GridPane.rowIndex="3" />
+												<Pane fx:id="GameCell_41" layoutX="10.0"
+													layoutY="340.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="1"
+													GridPane.rowIndex="4" />
+												<Pane fx:id="GameCell_51" layoutX="65.0"
+													layoutY="230.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="1"
+													GridPane.rowIndex="5" />
+												<Pane fx:id="GameCell_02" layoutX="120.0"
+													layoutY="88.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="2" />
+												<Pane fx:id="GameCell_12" layoutX="65.0" layoutY="65.0"
+													prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="2"
+													GridPane.rowIndex="1" />
+												<Pane fx:id="GameCell_22" layoutX="65.0"
+													layoutY="120.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="2"
+													GridPane.rowIndex="2" />
+												<Pane fx:id="GameCell_32" layoutX="65.0"
+													layoutY="175.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="2"
+													GridPane.rowIndex="3" />
+												<Pane fx:id="GameCell_42" layoutX="65.0"
+													layoutY="340.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="2"
+													GridPane.rowIndex="4" />
+												<Pane fx:id="GameCell_52" layoutX="120.0"
+													layoutY="230.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="2"
+													GridPane.rowIndex="5" />
+												<Pane fx:id="GameCell_03" layoutX="120.0"
+													layoutY="65.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="3" />
+												<Pane fx:id="GameCell_13" layoutX="120.0"
+													layoutY="120.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="3"
+													GridPane.rowIndex="1" />
+												<Pane fx:id="GameCell_23" layoutX="120.0"
+													layoutY="175.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="3"
+													GridPane.rowIndex="2" />
+												<Pane fx:id="GameCell_33" layoutX="120.0"
+													layoutY="285.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="3"
+													GridPane.rowIndex="3" />
+												<Pane fx:id="GameCell_43" layoutX="175.0"
+													layoutY="230.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="3"
+													GridPane.rowIndex="4" />
+												<Pane fx:id="GameCell_53" layoutX="175.0"
+													layoutY="253.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="3"
+													GridPane.rowIndex="5" />
+												<Pane fx:id="GameCell_04" layoutX="230.0"
+													layoutY="88.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="4" />
+												<Pane fx:id="GameCell_14" layoutX="175.0"
+													layoutY="65.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="4"
+													GridPane.rowIndex="1" />
+												<Pane fx:id="GameCell_24" layoutX="175.0"
+													layoutY="120.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="4"
+													GridPane.rowIndex="2" />
+												<Pane fx:id="GameCell_34" layoutX="175.0"
+													layoutY="175.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="4"
+													GridPane.rowIndex="3" />
+												<Pane fx:id="GameCell_44" layoutX="175.0"
+													layoutY="340.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="4"
+													GridPane.rowIndex="4" />
+												<Pane fx:id="GameCell_54" layoutX="230.0"
+													layoutY="230.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="4"
+													GridPane.rowIndex="5" />
+												<Pane fx:id="GameCell_05" layoutX="285.0"
+													layoutY="88.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="5" />
+												<Pane fx:id="GameCell_15" layoutX="230.0"
+													layoutY="65.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="5"
+													GridPane.rowIndex="1" />
+												<Pane fx:id="GameCell_25" layoutX="230.0"
+													layoutY="120.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="5"
+													GridPane.rowIndex="2" />
+												<Pane fx:id="GameCell_35" layoutX="230.0"
+													layoutY="175.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="5"
+													GridPane.rowIndex="3" />
+												<Pane fx:id="GameCell_45" layoutX="230.0"
+													layoutY="340.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="5"
+													GridPane.rowIndex="4" />
+												<Pane fx:id="GameCell_55" layoutX="285.0"
+													layoutY="230.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="5"
+													GridPane.rowIndex="5" />
+												<Pane fx:id="GameCell_06" layoutX="340.0"
+													layoutY="88.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="6" />
+												<Pane fx:id="GameCell_16" layoutX="285.0"
+													layoutY="65.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="6"
+													GridPane.rowIndex="1" />
+												<Pane fx:id="GameCell_26" layoutX="285.0"
+													layoutY="120.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="6"
+													GridPane.rowIndex="2" />
+												<Pane fx:id="GameCell_36" layoutX="285.0"
+													layoutY="175.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="6"
+													GridPane.rowIndex="3" />
+												<Pane fx:id="GameCell_46" layoutX="285.0"
+													layoutY="285.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="blue-background" GridPane.columnIndex="6"
+													GridPane.rowIndex="4" />
+												<Pane fx:id="GameCell_56" layoutX="285.0"
+													layoutY="340.0" prefHeight="200.0" prefWidth="200.0"
+													styleClass="dark-blue-background" GridPane.columnIndex="6"
+													GridPane.rowIndex="5" />
+											</children>
+										</GridPane>
+									</children>
+									<VBox.margin>
+										<Insets top="5.0" />
+									</VBox.margin>
+								</HBox>
+							</children>
+							<padding>
+								<Insets bottom="35.0" top="35.0" />
+							</padding>
+						</VBox>
+						<VBox prefHeight="200.0" prefWidth="175.0">
+							<children>
+								<HBox alignment="BOTTOM_CENTER" prefHeight="50.0"
+									prefWidth="200.0">
+									<children>
+										<Label text="Scores:">
+											<font>
+												<Font name="Pangolin Regular" size="24.0" />
+											</font>
+										</Label>
+									</children>
+								</HBox>
+								<HBox alignment="CENTER_LEFT" prefHeight="60.0"
+									prefWidth="200.0">
+									<children>
+										<ImageView fitHeight="40.0" fitWidth="40.0"
+											pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image
+													url="@../../resources/images/theme/male-astronaut.png" />
+											</image>
+											<HBox.margin>
+												<Insets right="10.0" />
+											</HBox.margin>
+										</ImageView>
+										<Label fx:id="PlayerScoreField" text="100">
+											<font>
+												<Font name="Pangolin Regular" size="22.0" />
+											</font>
+										</Label>
+										<Label layoutX="80.0" layoutY="25.0" text="Pts">
+											<font>
+												<Font name="Pangolin Regular" size="22.0" />
+											</font>
+											<padding>
+												<Insets left="5.0" />
+											</padding>
+										</Label>
+									</children>
+									<VBox.margin>
+										<Insets />
+									</VBox.margin>
+									<padding>
+										<Insets left="15.0" right="15.0" />
+									</padding>
+								</HBox>
+								<HBox alignment="CENTER_LEFT" prefHeight="60.0"
+									prefWidth="200.0">
+									<children>
+										<ImageView fitHeight="40.0" fitWidth="40.0"
+											pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../../resources/images/theme/octopus.png" />
+											</image>
+											<HBox.margin>
+												<Insets right="10.0" />
+											</HBox.margin>
+										</ImageView>
+										<Label fx:id="ComputerScoreField" text="100">
+											<font>
+												<Font name="Pangolin Regular" size="22.0" />
+											</font>
+										</Label>
+										<Label text="Pts">
+											<font>
+												<Font name="Pangolin Regular" size="22.0" />
+											</font>
+											<padding>
+												<Insets left="5.0" />
+											</padding>
+										</Label>
+									</children>
+									<VBox.margin>
+										<Insets />
+									</VBox.margin>
+									<padding>
+										<Insets left="15.0" right="15.0" />
+									</padding>
+								</HBox>
+							</children>
+							<HBox.margin>
+								<Insets />
+							</HBox.margin>
+						</VBox>
+					</children>
+				</HBox>
+			</children>
+		</VBox>
+	</children>
+</AnchorPane>

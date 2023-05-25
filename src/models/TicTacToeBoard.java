@@ -1,12 +1,12 @@
-package models.tictactoe;
+package models;
 
-public class GameBoard {
-	// Tic-Tac-Toe Game-Board Attributes
+public class TicTacToeBoard {
+	// Tic-Tac-Toe GameBoard Attributes
 	private static final int SIZE = 3;
 	private char[][] board;
 
 	// Default Class Constructor
-	public GameBoard() {
+	public TicTacToeBoard() {
 		board = new char[SIZE][SIZE];
 		startNewBoard();
 	}
@@ -36,13 +36,13 @@ public class GameBoard {
 	}
 
 	// Check for Win State
-	public boolean checkWin(int row, int column, char token) {
+	public boolean checkForWin(int row, int column, char token) {
 		// Check Row, Column, and Diagonals for Win
-		if (checkWinningRow(row, column, token)) {
+		if (checkForHorizontalWin(row, token)) {
 			return true;
-		} else if (checkWinningColumn(row, column, token)) {
+		} else if (checkForVerticalWin(column, token)) {
 			return true;
-		} else if (checkWinningDiagonal(row, column, token)) {
+		} else if (checkForDiagonalWin(row, column, token)) {
 			return true;
 		}
 
@@ -50,22 +50,22 @@ public class GameBoard {
 		return false;
 	}
 
-	// Check Row for a Win
-	private boolean checkWinningRow(int row, int column, char token) {
-
-		for (int c = 0; c < 3; c++) {
-			if (getToken(row, c) != token) {
+	// Check for a Horizontal Win
+	private boolean checkForHorizontalWin(int row, char token) {
+		// Check the Row
+		for (int column = 0; column < 3; column++) {
+			if (getToken(row, column) != token) {
 				break;
 			}
-			if (c == 2) {
+			if (column == 2) {
 				return true; // Winning Condition Met in the Row
 			}
 		}
 		return false;
 	}
 
-	// Check Column for a Win
-	private boolean checkWinningColumn(int row, int column, char token) {
+	// Check for a Vertical Win
+	private boolean checkForVerticalWin(int column, char token) {
 		// Check the column
 		for (int r = 0; r < 3; r++) {
 			if (getToken(r, column) != token) {
@@ -78,8 +78,8 @@ public class GameBoard {
 		return false;
 	}
 
-	// Check Main and Secondary Diagonal for a Win
-	private boolean checkWinningDiagonal(int row, int column, char token) {
+	// Check For Main or Secondary Diagonal Win
+	private boolean checkForDiagonalWin(int row, int column, char token) {
 		// Check the Main Diagonal
 		if (row == column) {
 			for (int i = 0; i < 3; i++) {
@@ -105,5 +105,4 @@ public class GameBoard {
 		}
 		return false;
 	}
-
 }

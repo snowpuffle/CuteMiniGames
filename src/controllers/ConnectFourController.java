@@ -11,22 +11,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import models.TicTacToeBoard;
-import models.Model;
-import models.Player;
+import models.*;
 
-public class TicTacToeController implements Initializable {
+public class ConnectFourController implements Initializable {
 	// GamePlay Attributes
 	private Player player;
-	private TicTacToeBoard gameBoard;
+	private ConnectFourBoard gameBoard;
 
 	// GamePlay Variables
-	private final int MAX_TURNS = 9;
 	private boolean gameOver;
-	private int numberOfTurns;
 	private int playerScore;
 	private int computerScore;
 	private char playerToken;
@@ -43,22 +40,72 @@ public class TicTacToeController implements Initializable {
 	public Button RestartButton;
 
 	// Utility Attributes
+	private static final int ROWS = 6;
+	private static final int COLUMNS = 7;
+	private Image ArrowImage;
 	private Image Token_X;
 	private Image Token_O;
 
-	// GameBoard Cell Buttons
-	public Button Button_00;
-	public Button Button_01;
-	public Button Button_02;
-	public Button Button_10;
-	public Button Button_11;
-	public Button Button_12;
-	public Button Button_20;
-	public Button Button_21;
-	public Button Button_22;
+	// GameBoard Column Buttons
+	public Button ColumnButton_0;
+	public Button ColumnButton_1;
+	public Button ColumnButton_2;
+	public Button ColumnButton_3;
+	public Button ColumnButton_4;
+	public Button ColumnButton_5;
+	public Button ColumnButton_6;
+
+	// GameBoard Cell Panes
+	public Pane GameCell_00;
+	public Pane GameCell_01;
+	public Pane GameCell_02;
+	public Pane GameCell_03;
+	public Pane GameCell_04;
+	public Pane GameCell_05;
+	public Pane GameCell_06;
+
+	public Pane GameCell_10;
+	public Pane GameCell_11;
+	public Pane GameCell_12;
+	public Pane GameCell_13;
+	public Pane GameCell_14;
+	public Pane GameCell_15;
+	public Pane GameCell_16;
+
+	public Pane GameCell_20;
+	public Pane GameCell_21;
+	public Pane GameCell_22;
+	public Pane GameCell_23;
+	public Pane GameCell_24;
+	public Pane GameCell_25;
+	public Pane GameCell_26;
+
+	public Pane GameCell_30;
+	public Pane GameCell_31;
+	public Pane GameCell_32;
+	public Pane GameCell_33;
+	public Pane GameCell_34;
+	public Pane GameCell_35;
+	public Pane GameCell_36;
+
+	public Pane GameCell_40;
+	public Pane GameCell_41;
+	public Pane GameCell_42;
+	public Pane GameCell_43;
+	public Pane GameCell_44;
+	public Pane GameCell_45;
+	public Pane GameCell_46;
+
+	public Pane GameCell_50;
+	public Pane GameCell_51;
+	public Pane GameCell_52;
+	public Pane GameCell_53;
+	public Pane GameCell_54;
+	public Pane GameCell_55;
+	public Pane GameCell_56;
 
 	// Default Class Constructor
-	public TicTacToeController(Player player) {
+	public ConnectFourController(Player player) {
 		this.player = player;
 	}
 
@@ -74,7 +121,6 @@ public class TicTacToeController implements Initializable {
 	// Initialize Frame
 	private void initializeGamePlay() {
 		// Initialize Game Play Variables
-		numberOfTurns = 0;
 		playerTurn = false;
 		computerTurn = false;
 
@@ -87,7 +133,7 @@ public class TicTacToeController implements Initializable {
 		// Initialize Player and Board
 		playerToken = player.getToken();
 		computerToken = (playerToken == 'X') ? 'O' : 'X';
-		gameBoard = new TicTacToeBoard();
+		gameBoard = new ConnectFourBoard();
 
 		// Show the Start button and Hide the Restart button
 		StartButton.setVisible(true);
@@ -105,17 +151,19 @@ public class TicTacToeController implements Initializable {
 		RestartButton.setOnAction(event -> handleRestartGame());
 
 		// Loop Through and Assign Listeners to All Buttons On Game Board
-		for (int row = 0; row < 3; row++) {
-			for (int column = 0; column < 3; column++) {
-				Button button = getGameCell(row, column);
-				assignButtonListener(button, row, column);
-			}
+		Button[] ColumnButtons = { ColumnButton_0, ColumnButton_1, ColumnButton_2, ColumnButton_3, ColumnButton_4,
+				ColumnButton_5, ColumnButton_6 };
+		for (int columnIndex = 0; columnIndex < ColumnButtons.length; columnIndex++) {
+			Button button = ColumnButtons[columnIndex];
+			assignButtonListener(button, columnIndex);
 		}
 	}
 
 	// Assign Button Listeners
-	private void assignButtonListener(Button button, int row, int column) {
-		button.setOnAction(event -> handlePlayerMove(row, column));
+	private void assignButtonListener(Button button, int column) {
+		button.setOnMouseEntered(e -> addImageOnButton(button));
+		button.setOnMouseExited(e -> removeImageOnButton(button));
+		button.setOnAction(e -> handlePlayerMove(column));
 	}
 
 	// Event: "Start" Button is Clicked
@@ -142,7 +190,6 @@ public class TicTacToeController implements Initializable {
 	private void createNewGame() {
 		// Reset Game Play Variables
 		gameOver = false;
-		numberOfTurns = 0;
 		playerTurn = false;
 		computerTurn = false;
 
@@ -164,24 +211,29 @@ public class TicTacToeController implements Initializable {
 	}
 
 	// Event: Player Places a Move on the GameBoard
-	private void handlePlayerMove(int row, int column) {
+	private void handlePlayerMove(int columnToInsert) {
 		// Check if it is Player's Turn and Game is NOT Over
-		if (playerTurn && !gameOver && numberOfTurns < MAX_TURNS) {
+		if (playerTurn && !gameOver) {
 
-			// Set Token ONLY if Cell is NOT Occupied
-			if (!isCellOccupied(row, column)) {
-				insertToken(row, column, playerToken);
+			// Check if Column is NOT Full
+			if (!isColumnFull(columnToInsert)) {
 
-				// Check if Move is the Winning Move
-				if (checkForWin(row, column, playerToken)) {
-					handleWin("PLAYER"); // Winning Move!
-				} else if (checkForDraw()) {
-					handleWin("DRAW"); // Draw Move
-				} else {
-					startComputerTurn(); // Not a Winning Move, Start Computer's Turn
+				// Find the Row to Insert and Insert the Token
+				int rowToInsert = findEmptyRow(columnToInsert);
+				if (rowToInsert != -1) {
+					insertToken(rowToInsert, columnToInsert, playerToken);
+
+					// Check if Move is the Winning Move
+					if (checkForWin(rowToInsert, columnToInsert, playerToken)) {
+						handleWin("PLAYER"); // Winning Move!
+					} else if (checkForDraw()) {
+						handleWin("DRAW"); // Draw Move
+					} else {
+						startComputerTurn(); // Not a Winning Move, Start Computer's Turn
+					}
 				}
 			} else {
-				handleMessageLabel("Please Select a Different Cell!");
+				handleMessageLabel("Column is Full!");
 			}
 		}
 	}
@@ -189,14 +241,14 @@ public class TicTacToeController implements Initializable {
 	// Set Up for Computer's Move
 	private void startComputerTurn() {
 		// Start Computer's Turn ONLY if Game is NOT Over
-		if (!gameOver && numberOfTurns < MAX_TURNS) {
+		if (!gameOver && !checkForDraw()) {
 
 			// Set Computer's Turn
 			handleMessageLabel("Computer's Turn!");
 			playerTurn = false;
 			computerTurn = true;
 
-			// Delay the Computer's Move by 2 Seconds
+			// Delay the Computer's Move by 1 Second
 			PauseTransition delay = new PauseTransition(Duration.seconds(1.0));
 			delay.setOnFinished(event -> handleComputerMove());
 			delay.play();
@@ -206,20 +258,20 @@ public class TicTacToeController implements Initializable {
 	// Computer's Turn to Place a Token
 	private void handleComputerMove() {
 		// Randomly Select a Position and Check if Position is Available
-		int row, column;
+		int columnToInsert, rowToInsert;
 		if (computerTurn) {
 			do {
 				// Select a Random Position
 				Random random = new Random();
-				row = random.nextInt(3);
-				column = random.nextInt(3);
-			} while (isCellOccupied(row, column));
+				columnToInsert = random.nextInt(COLUMNS);
+			} while (isColumnFull(columnToInsert));
 
-			// Set Token at the Randomly Selected Available Position
-			insertToken(row, column, computerToken);
+			// Set Token at the Randomly Selected Column
+			rowToInsert = findEmptyRow(columnToInsert);
+			insertToken(rowToInsert, columnToInsert, computerToken);
 
 			// Check if Move is the Winning Move
-			if (checkForWin(row, column, computerToken)) {
+			if (checkForWin(rowToInsert, columnToInsert, computerToken)) {
 				handleWin("COMPUTER"); // Winning Move!
 			} else if (checkForDraw()) {
 				handleWin("DRAW"); // Draw Move
@@ -229,44 +281,65 @@ public class TicTacToeController implements Initializable {
 		}
 	}
 
-	// Check if Move is the Winning move
+	// Check if Move is the Winning Move
 	private boolean checkForWin(int row, int column, char token) {
 		return gameBoard.checkForWin(row, column, token);
 	}
 
 	// Check for a Draw
 	private boolean checkForDraw() {
-		return numberOfTurns == MAX_TURNS;
+		for (int col = 0; col < COLUMNS; col++) {
+			if (!isColumnFull(col)) {
+				return false; // Not a Draw: At Least One Column is Not Full
+			}
+		}
+		return true; // A Draw: All Columns are Full
 	}
 
-	// Check if Cell is Occupied
-	private boolean isCellOccupied(int row, int column) {
-		return gameBoard.getToken(row, column) != ' ';
+	// Find the First Empty Row in the Selected Column
+	private int findEmptyRow(int columnToInsert) {
+		int rowToInsert = -1;
+		for (int row = ROWS - 1; row >= 0; row--) {
+			if (gameBoard.getToken(row, columnToInsert) == ' ') {
+				rowToInsert = row;
+				break;
+			}
+		}
+		return rowToInsert;
+	}
+
+	// Check if Column to Insert is Full
+	private boolean isColumnFull(int columnToInsert) {
+		return gameBoard.getToken(0, columnToInsert) != ' ';
 	}
 
 	// Set Token on a Row & Column
 	private void insertToken(int row, int column, char token) {
 		gameBoard.setToken(row, column, token);
 		setTokenImage(getGameCell(row, column), token);
-		numberOfTurns++;
 	}
 
 	// Get GameCell based on Row & Column
-	private Button getGameCell(int row, int column) {
-		Button[][] GameCells = { { Button_00, Button_01, Button_02 }, { Button_10, Button_11, Button_12 },
-				{ Button_20, Button_21, Button_22 } };
+	private Pane getGameCell(int row, int column) {
+		Pane[][] GameCells = {
+				{ GameCell_00, GameCell_01, GameCell_02, GameCell_03, GameCell_04, GameCell_05, GameCell_06 },
+				{ GameCell_10, GameCell_11, GameCell_12, GameCell_13, GameCell_14, GameCell_15, GameCell_16 },
+				{ GameCell_20, GameCell_21, GameCell_22, GameCell_23, GameCell_24, GameCell_25, GameCell_26 },
+				{ GameCell_30, GameCell_31, GameCell_32, GameCell_33, GameCell_34, GameCell_35, GameCell_36 },
+				{ GameCell_40, GameCell_41, GameCell_42, GameCell_43, GameCell_44, GameCell_45, GameCell_46 },
+				{ GameCell_50, GameCell_51, GameCell_52, GameCell_53, GameCell_54, GameCell_55, GameCell_56 } };
 		return GameCells[row][column];
 	}
 
-	// Set GameCell Button Image based on Token
-	private void setTokenImage(Button button, char token) {
+	// Set GameCell Pane based on Token
+	private void setTokenImage(Pane pane, char token) {
 		// Set Image to Button based on Token
 		if (token == 'X' && Token_X != null) {
-			ImageView imageView = createImageView(Token_X, button.getWidth() / 2, button.getHeight() / 2);
-			button.setGraphic(imageView);
+			ImageView imageView = createImageView(Token_X, pane.getWidth() / 2, pane.getHeight() / 2);
+			addImageToPane(pane, imageView);
 		} else if (token == 'O' && Token_O != null) {
-			ImageView imageView = createImageView(Token_O, button.getWidth() / 2, button.getHeight() / 2);
-			button.setGraphic(imageView);
+			ImageView imageView = createImageView(Token_O, pane.getWidth() / 2, pane.getHeight() / 2);
+			addImageToPane(pane, imageView);
 		}
 	}
 
@@ -313,33 +386,50 @@ public class TicTacToeController implements Initializable {
 		}
 	}
 
-	// Initialize Token Images
-	private void initializeImages() {
-		Token_X = getImage('X');
-		Token_O = getImage('O');
+	// Add Arrow when Column Button is Hovered
+	private void addImageOnButton(Button button) {
+		if (ArrowImage != null) {
+			ImageView imageView = createImageView(ArrowImage, button.getWidth() / 2, button.getHeight() / 2);
+			button.setGraphic(imageView);
+		}
 	}
 
-	// Clear All Tokens from Buttons
+	// Add Arrow when Column Button is Hovered
+	private void removeImageOnButton(Button button) {
+		button.setGraphic(null);
+	}
+
+	// Get and Initialize Arrow Image
+	private void initializeImages() {
+		Token_X = getImage("X");
+		Token_O = getImage("O");
+		ArrowImage = getImage("ARROW");
+	}
+
+	// Clear All Tokens from GameCells
 	private void removeAllTokenImages() {
-		for (int row = 0; row < 3; row++) {
-			for (int column = 0; column < 3; column++) {
-				Button button = getGameCell(row, column);
-				button.setGraphic(null);
+		// Remove token images from all GameCells
+		for (int row = 0; row < ROWS; row++) {
+			for (int col = 0; col < COLUMNS; col++) {
+				Pane pane = getGameCell(row, col);
+				pane.getChildren().removeIf(node -> node instanceof ImageView);
 			}
 		}
 	}
 
-	// Get Image Based on Token
-	private Image getImage(char token) {
+	// Get Image Based on Marker
+	private Image getImage(String imageName) {
 		// Initialize Empty Location
 		String mainLocation = System.getProperty("user.dir") + "\\resources\\images";
 		String imageLocation = "";
 
 		// Set Image Folder Location Based on Type
-		if (token == 'X') {
+		if ("X".equalsIgnoreCase(imageName)) {
 			imageLocation = mainLocation + "\\icons\\letter-x.png";
-		} else if (token == 'O') {
+		} else if ("O".equalsIgnoreCase(imageName)) {
 			imageLocation = mainLocation + "\\icons\\letter-o.png";
+		} else if ("ARROW".equalsIgnoreCase(imageName)) {
+			imageLocation = mainLocation + "\\icons\\arrow.png";
 		}
 
 		// Check if the Image File Exists
@@ -357,6 +447,13 @@ public class TicTacToeController implements Initializable {
 		imageView.setFitWidth(fitWidth);
 		imageView.setFitHeight(fitHeight);
 		return imageView;
+	}
+
+	// Add and Center the ImageView within the Pane
+	private void addImageToPane(Pane pane, ImageView imageView) {
+		imageView.layoutXProperty().bind(pane.widthProperty().subtract(imageView.fitWidthProperty()).divide(2));
+		imageView.layoutYProperty().bind(pane.heightProperty().subtract(imageView.fitHeightProperty()).divide(2));
+		pane.getChildren().add(imageView);
 	}
 
 	// Event: "Go Back" Button is Clicked

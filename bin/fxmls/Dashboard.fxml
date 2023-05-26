@@ -12,15 +12,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" styleClass="light-blue-background" stylesheets="@../../resources/stylesheets/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0"
+	prefWidth="800.0" styleClass="light-blue-background"
+	stylesheets="@../../resources/stylesheets/main.css"
+	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
 		<VBox prefHeight="550.0" prefWidth="800.0">
 			<children>
-				<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="blue-background">
+				<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0"
+					styleClass="blue-background">
 					<children>
 						<HBox alignment="CENTER" prefHeight="100.0" prefWidth="800.0">
 							<children>
-								<ImageView fitHeight="40.0" fitWidth="40.0" layoutX="68.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+								<ImageView fitHeight="40.0" fitWidth="40.0"
+									layoutX="68.0" layoutY="40.0" pickOnBounds="true"
+									preserveRatio="true">
 									<image>
 										<Image url="@../../resources/images/theme/stars.png" />
 									</image>
@@ -28,7 +35,8 @@
 										<Insets right="10.0" />
 									</HBox.margin>
 								</ImageView>
-								<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+								<ImageView fitHeight="40.0" fitWidth="40.0"
+									pickOnBounds="true" preserveRatio="true">
 									<image>
 										<Image url="@../../resources/images/theme/uranus.png" />
 									</image>
@@ -41,7 +49,9 @@
 										<Font name="Pangolin Regular" size="46.0" />
 									</font>
 								</Label>
-								<ImageView fitHeight="40.0" fitWidth="40.0" layoutX="95.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+								<ImageView fitHeight="40.0" fitWidth="40.0"
+									layoutX="95.0" layoutY="40.0" pickOnBounds="true"
+									preserveRatio="true">
 									<image>
 										<Image url="@../../resources/images/theme/sun.png" />
 									</image>
@@ -49,9 +59,12 @@
 										<Insets left="15.0" />
 									</HBox.margin>
 								</ImageView>
-								<ImageView fitHeight="40.0" fitWidth="40.0" layoutX="483.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+								<ImageView fitHeight="40.0" fitWidth="40.0"
+									layoutX="483.0" layoutY="40.0" pickOnBounds="true"
+									preserveRatio="true">
 									<image>
-										<Image url="@../../resources/images/theme/constellation.png" />
+										<Image
+											url="@../../resources/images/theme/constellation.png" />
 									</image>
 									<HBox.margin>
 										<Insets left="10.0" />
@@ -65,7 +78,8 @@
 					<children>
 						<HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
 							<children>
-								<Label fx:id="MessageLabel" text="Please Enter Your Name and Select a Game!">
+								<Label fx:id="MessageLabel"
+									text="Please Enter Your Name and Select a Game!">
 									<font>
 										<Font name="Pangolin Regular" size="26.0" />
 									</font>
@@ -76,9 +90,11 @@
 							<children>
 								<VBox alignment="TOP_CENTER" prefWidth="330.0">
 									<children>
-										<HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+										<HBox alignment="CENTER_LEFT" prefHeight="50.0"
+											prefWidth="200.0">
 											<children>
-												<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+												<ImageView fitHeight="30.0" fitWidth="30.0"
+													pickOnBounds="true" preserveRatio="true">
 													<image>
 														<Image url="@../../resources/images/icons/user.png" />
 													</image>
@@ -86,7 +102,8 @@
 														<Insets right="5.0" />
 													</HBox.margin>
 												</ImageView>
-												<Label styleClass="title-label" text="Enter Player Name: " />
+												<Label styleClass="title-label"
+													text="Enter Player Name: " />
 											</children>
 											<VBox.margin>
 												<Insets />
@@ -95,16 +112,26 @@
 												<Insets left="35.0" />
 											</padding>
 										</HBox>
-										<HBox alignment="CENTER" prefHeight="90.0" prefWidth="200.0">
+										<HBox alignment="CENTER" prefHeight="90.0"
+											prefWidth="200.0">
 											<children>
-												<TextField fx:id="NameField" prefHeight="60.0" prefWidth="250.0" styleClass="blue-background" />
+												<TextField fx:id="NameField" prefHeight="60.0"
+													prefWidth="250.0">
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="regular-text-field" />
+													</styleClass>
+												</TextField>
 											</children>
 										</HBox>
-										<HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="10.0" prefHeight="50.0" prefWidth="200.0">
+										<HBox alignment="CENTER_LEFT" layoutX="30.0"
+											layoutY="10.0" prefHeight="50.0" prefWidth="200.0">
 											<children>
-												<ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+												<ImageView fitHeight="35.0" fitWidth="35.0"
+													pickOnBounds="true" preserveRatio="true">
 													<image>
-														<Image url="@../../resources/images/icons/chess-piece.png" />
+														<Image
+															url="@../../resources/images/icons/chess-piece.png" />
 													</image>
 													<HBox.margin>
 														<Insets right="5.0" />
@@ -119,39 +146,46 @@
 												<Insets top="20.0" />
 											</VBox.margin>
 										</HBox>
-										<HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" prefHeight="90.0" prefWidth="200.0">
+										<HBox alignment="CENTER" layoutX="10.0" layoutY="60.0"
+											prefHeight="90.0" prefWidth="200.0">
 											<children>
-												<Button fx:id="TokenButton_X" mnemonicParsing="false" prefHeight="70.0">
+												<Button fx:id="TokenButton_X" mnemonicParsing="false"
+													prefHeight="70.0">
 													<graphic>
-														<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+														<ImageView fitHeight="40.0" fitWidth="40.0"
+															pickOnBounds="true" preserveRatio="true">
 															<image>
-																<Image url="@../../resources/images/icons/letter-x.png" />
+																<Image
+																	url="@../../resources/images/icons/letter-x.png" />
 															</image>
 														</ImageView>
 													</graphic>
 													<HBox.margin>
 														<Insets right="15.0" />
 													</HBox.margin>
-                                       <styleClass>
-                                          <String fx:value="blue-background" />
-                                          <String fx:value="regular-button" />
-                                       </styleClass>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="regular-button" />
+													</styleClass>
 												</Button>
-												<Button fx:id="TokenButton_O" layoutX="125.0" layoutY="30.0" mnemonicParsing="false" prefHeight="70.0">
+												<Button fx:id="TokenButton_O" layoutX="125.0"
+													layoutY="30.0" mnemonicParsing="false" prefHeight="70.0">
 													<graphic>
-														<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+														<ImageView fitHeight="40.0" fitWidth="40.0"
+															pickOnBounds="true" preserveRatio="true">
 															<image>
-																<Image url="@../../resources/images/icons/letter-o.png" />
+																<Image
+																	url="@../../resources/images/icons/letter-o.png" />
 															</image>
 														</ImageView>
 													</graphic>
 													<HBox.margin>
 														<Insets left="15.0" />
 													</HBox.margin>
-                                       <styleClass>
-                                          <String fx:value="blue-background" />
-                                          <String fx:value="regular-button" />
-                                       </styleClass>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="regular-button" />
+													</styleClass>
 												</Button>
 											</children>
 										</HBox>
@@ -162,11 +196,14 @@
 								</VBox>
 								<VBox alignment="TOP_CENTER" prefWidth="330.0">
 									<children>
-										<HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+										<HBox alignment="CENTER_LEFT" prefHeight="50.0"
+											prefWidth="200.0">
 											<children>
-												<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+												<ImageView fitHeight="40.0" fitWidth="40.0"
+													pickOnBounds="true" preserveRatio="true">
 													<image>
-														<Image url="@../../resources/images/icons/game-controller.png" />
+														<Image
+															url="@../../resources/images/icons/game-controller.png" />
 													</image>
 													<HBox.margin>
 														<Insets right="5.0" />
@@ -181,54 +218,72 @@
 												<Insets left="35.0" />
 											</padding>
 										</HBox>
-										<HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="90.0" prefWidth="200.0">
+										<HBox alignment="CENTER" layoutX="10.0" layoutY="10.0"
+											prefHeight="90.0" prefWidth="200.0">
 											<children>
-												<Button fx:id="TicTacToeButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" text="Tic-Tac-Toe">
+												<Button fx:id="TicTacToeButton"
+													mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0"
+													text="Tic-Tac-Toe">
 													<graphic>
-														<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
+														<ImageView fitHeight="40.0" fitWidth="40.0"
+															pickOnBounds="true" preserveRatio="true"
+															translateX="-10.0">
 															<image>
-																<Image url="@../../resources/images/icons/tic-tac-toe.png" />
+																<Image
+																	url="@../../resources/images/icons/tic-tac-toe.png" />
 															</image>
 														</ImageView>
 													</graphic>
-                                       <styleClass>
-                                          <String fx:value="blue-background" />
-                                          <String fx:value="regular-button" />
-                                       </styleClass>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="regular-button" />
+													</styleClass>
 												</Button>
 											</children>
 										</HBox>
-										<HBox alignment="CENTER" layoutX="10.0" layoutY="160.0" prefHeight="90.0" prefWidth="200.0">
+										<HBox alignment="CENTER" layoutX="10.0" layoutY="160.0"
+											prefHeight="90.0" prefWidth="200.0">
 											<children>
-												<Button fx:id="ConnectFourButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" text="Connect-Four">
+												<Button fx:id="ConnectFourButton"
+													mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0"
+													text="Connect-Four">
 													<graphic>
-														<ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
+														<ImageView fitHeight="35.0" fitWidth="35.0"
+															pickOnBounds="true" preserveRatio="true"
+															translateX="-10.0">
 															<image>
-																<Image url="@../../resources/images/icons/connect-four.png" />
+																<Image
+																	url="@../../resources/images/icons/connect-four.png" />
 															</image>
 														</ImageView>
 													</graphic>
-                                       <styleClass>
-                                          <String fx:value="blue-background" />
-                                          <String fx:value="regular-button" />
-                                       </styleClass>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="regular-button" />
+													</styleClass>
 												</Button>
 											</children>
 										</HBox>
-										<HBox alignment="CENTER" prefHeight="90.0" prefWidth="200.0">
+										<HBox alignment="CENTER" prefHeight="90.0"
+											prefWidth="200.0">
 											<children>
-												<Button fx:id="SudokuGameButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0" text="Sudoku Game">
+												<Button fx:id="SudokuGameButton"
+													mnemonicParsing="false" prefHeight="60.0" prefWidth="250.0"
+													text="Sudoku Game">
 													<graphic>
-														<ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
+														<ImageView fitHeight="35.0" fitWidth="35.0"
+															pickOnBounds="true" preserveRatio="true"
+															translateX="-10.0">
 															<image>
-																<Image url="@../../resources/images/icons/sudoku.png" />
+																<Image
+																	url="@../../resources/images/icons/sudoku.png" />
 															</image>
 														</ImageView>
 													</graphic>
-                                       <styleClass>
-                                          <String fx:value="blue-background" />
-                                          <String fx:value="regular-button" />
-                                       </styleClass>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="regular-button" />
+													</styleClass>
 												</Button>
 											</children>
 										</HBox>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0"
+	prefWidth="800.0" stylesheets="@../../resources/stylesheets/main.css"
+	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<VBox alignment="TOP_CENTER" prefHeight="550.0" prefWidth="800.0"
+			styleClass="light-blue-background">
+			<children>
+				<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0"
+					styleClass="dark-blue-background">
+					<children>
+						<VBox prefHeight="200.0" prefWidth="550.0">
+							<children>
+								<HBox alignment="CENTER" prefHeight="100.0"
+									prefWidth="400.0">
+									<children>
+										<ImageView fitHeight="40.0" fitWidth="40.0"
+											pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../../resources/images/theme/mars.png" />
+											</image>
+											<HBox.margin>
+												<Insets right="15.0" />
+											</HBox.margin>
+										</ImageView>
+										<Label text="Sudoku Game">
+											<font>
+												<Font name="Pangolin Regular" size="46.0" />
+											</font>
+										</Label>
+									</children>
+								</HBox>
+							</children>
+						</VBox>
+						<VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+							<children>
+								<Button fx:id="GoBackButton" mnemonicParsing="false"
+									prefHeight="50.0" prefWidth="190.0" text="Return to Main">
+									<graphic>
+										<ImageView fitHeight="30.0" fitWidth="30.0"
+											pickOnBounds="true" preserveRatio="true" translateX="-5.0">
+											<image>
+												<Image url="@../../resources/images/icons/return.png" />
+											</image>
+										</ImageView>
+									</graphic>
+									<styleClass>
+										<String fx:value="regular-button" />
+										<String fx:value="blue-background" />
+									</styleClass>
+								</Button>
+							</children>
+						</VBox>
+					</children>
+				</HBox>
+				<HBox alignment="CENTER" prefHeight="450.0">
+					<children>
+						<VBox alignment="TOP_CENTER" prefHeight="200.0"
+							prefWidth="200.0">
+							<children>
+								<HBox alignment="CENTER_RIGHT" prefHeight="75.0">
+									<children>
+										<Button fx:id="StartButton" mnemonicParsing="false"
+											prefHeight="50.0" prefWidth="150.0" text="Start!">
+											<graphic>
+												<ImageView fitHeight="30.0" fitWidth="30.0"
+													pickOnBounds="true" preserveRatio="true" translateX="-8.0">
+													<image>
+														<Image
+															url="@../../resources/images/icons/shuttle.png" />
+													</image>
+												</ImageView>
+											</graphic>
+											<styleClass>
+												<String fx:value="regular-button" />
+												<String fx:value="blue-background" />
+											</styleClass>
+										</Button>
+									</children>
+									<padding>
+										<Insets right="10.0" />
+									</padding>
+								</HBox>
+								<HBox alignment="CENTER_RIGHT" layoutX="10.0"
+									layoutY="198.0" prefHeight="75.0">
+									<children>
+										<Button fx:id="RestartButton" mnemonicParsing="false"
+											prefHeight="50.0" prefWidth="150.0" text="Restart">
+											<graphic>
+												<ImageView fitHeight="30.0" fitWidth="30.0"
+													pickOnBounds="true" preserveRatio="true" translateX="-8.0">
+													<image>
+														<Image
+															url="@../../resources/images/icons/reload.png" />
+													</image>
+												</ImageView>
+											</graphic>
+											<styleClass>
+												<String fx:value="regular-button" />
+												<String fx:value="blue-background" />
+											</styleClass>
+										</Button>
+									</children>
+									<padding>
+										<Insets right="10.0" />
+									</padding>
+								</HBox>
+							</children>
+							<padding>
+								<Insets top="50.0" />
+							</padding>
+						</VBox>
+						<VBox prefHeight="450.0" prefWidth="400.0">
+							<children>
+								<HBox alignment="TOP_CENTER" prefHeight="50.0">
+									<children>
+										<Label fx:id="MessageLabel" alignment="CENTER"
+											contentDisplay="CENTER" text="Welcome to the Game!"
+											textAlignment="CENTER" wrapText="true">
+											<font>
+												<Font name="Pangolin Regular" size="24.0" />
+											</font>
+										</Label>
+									</children>
+									<padding>
+										<Insets top="20.0" />
+									</padding>
+								</HBox>
+								<HBox alignment="TOP_CENTER" fillHeight="false"
+									prefHeight="400.0" prefWidth="400.0">
+									<children>
+										<GridPane fx:id="BoardGame" alignment="CENTER"
+											prefHeight="330.0" prefWidth="330.0" styleClass="shadow">
+											<columnConstraints>
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="85.0" minWidth="85.0"
+													prefWidth="85.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="85.0" minWidth="85.0"
+													prefWidth="85.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="85.0" minWidth="85.0"
+													prefWidth="85.0" />
+												<ColumnConstraints halignment="CENTER"
+													hgrow="SOMETIMES" maxWidth="85.0" minWidth="85.0"
+													prefWidth="85.0" />
+											</columnConstraints>
+											<rowConstraints>
+												<RowConstraints maxHeight="85.0"
+													minHeight="85.0" prefHeight="85.0" vgrow="SOMETIMES" />
+												<RowConstraints maxHeight="85.0"
+													minHeight="85.0" prefHeight="85.0" vgrow="SOMETIMES" />
+												<RowConstraints maxHeight="85.0"
+													minHeight="85.0" prefHeight="85.0" vgrow="SOMETIMES" />
+												<RowConstraints maxHeight="85.0"
+													minHeight="85.0" prefHeight="85.0" vgrow="SOMETIMES" />
+											</rowConstraints>
+											<children>
+												<TextField fx:id="TextField_00" alignment="CENTER"
+													maxHeight="75.0" maxWidth="75.0" minHeight="75.0"
+													minWidth="75.0" prefHeight="75.0" prefWidth="75.0">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="rounded-border" />
+														<String fx:value="black-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_01" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="rounded-border" />
+														<String fx:value="black-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_02" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="dark-blue-background" />
+														<String fx:value="black-border" />
+														<String fx:value="rounded-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_03" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="dark-blue-background" />
+														<String fx:value="black-border" />
+														<String fx:value="rounded-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_10" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="1">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="rounded-border" />
+														<String fx:value="black-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_11" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1"
+													GridPane.rowIndex="1">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="rounded-border" />
+														<String fx:value="black-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_12" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2"
+													GridPane.rowIndex="1">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="dark-blue-background" />
+														<String fx:value="black-border" />
+														<String fx:value="rounded-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_13" alignment="CENTER"
+													layoutX="95.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3"
+													GridPane.rowIndex="1">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="dark-blue-background" />
+														<String fx:value="black-border" />
+														<String fx:value="rounded-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_20" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="2">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="dark-blue-background" />
+														<String fx:value="black-border" />
+														<String fx:value="rounded-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_21" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1"
+													GridPane.rowIndex="2">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="dark-blue-background" />
+														<String fx:value="black-border" />
+														<String fx:value="rounded-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_22" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2"
+													GridPane.rowIndex="2">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="rounded-border" />
+														<String fx:value="black-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_23" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3"
+													GridPane.rowIndex="2">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="rounded-border" />
+														<String fx:value="black-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_30" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="3">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="dark-blue-background" />
+														<String fx:value="black-border" />
+														<String fx:value="rounded-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_31" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1"
+													GridPane.rowIndex="3">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="dark-blue-background" />
+														<String fx:value="black-border" />
+														<String fx:value="rounded-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_32" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2"
+													GridPane.rowIndex="3">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="rounded-border" />
+														<String fx:value="black-border" />
+													</styleClass>
+												</TextField>
+												<TextField fx:id="TextField_33" alignment="CENTER"
+													layoutX="10.0" layoutY="10.0" maxHeight="75.0"
+													maxWidth="75.0" minHeight="75.0" minWidth="75.0"
+													prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3"
+													GridPane.rowIndex="3">
+													<font>
+														<Font name="Pangolin Regular" size="26.0" />
+													</font>
+													<styleClass>
+														<String fx:value="blue-background" />
+														<String fx:value="rounded-border" />
+														<String fx:value="black-border" />
+													</styleClass>
+												</TextField>
+											</children>
+										</GridPane>
+									</children>
+									<VBox.margin>
+										<Insets top="5.0" />
+									</VBox.margin>
+									<padding>
+										<Insets bottom="15.0" top="15.0" />
+									</padding>
+								</HBox>
+							</children>
+						</VBox>
+						<VBox prefHeight="200.0" prefWidth="200.0">
+							<HBox.margin>
+								<Insets />
+							</HBox.margin>
+							<children>
+								<HBox alignment="CENTER_LEFT" prefHeight="75.0">
+									<children>
+										<Button fx:id="SubmitButton" mnemonicParsing="false"
+											prefHeight="50.0" prefWidth="150.0" text="Check!">
+											<graphic>
+												<ImageView fitHeight="30.0" fitWidth="30.0"
+													pickOnBounds="true" preserveRatio="true" translateX="-8.0">
+													<image>
+														<Image
+															url="@../../resources/images/icons/check-mark.png" />
+													</image>
+												</ImageView>
+											</graphic>
+											<styleClass>
+												<String fx:value="regular-button" />
+												<String fx:value="blue-background" />
+											</styleClass>
+										</Button>
+									</children>
+									<padding>
+										<Insets left="10.0" />
+									</padding>
+								</HBox>
+							</children>
+							<padding>
+								<Insets top="50.0" />
+							</padding>
+						</VBox>
+					</children>
+				</HBox>
+			</children>
+		</VBox>
+	</children>
+</AnchorPane>

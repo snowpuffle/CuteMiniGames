@@ -64,7 +64,7 @@
 					<children>
 						<VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0">
 							<children>
-								<HBox alignment="CENTER" prefHeight="75.0">
+								<HBox alignment="CENTER_RIGHT" prefHeight="75.0">
 									<children>
 										<Button fx:id="StartButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Start!">
 											<graphic>
@@ -80,8 +80,11 @@
                                  </styleClass>
 										</Button>
 									</children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
 								</HBox>
-								<HBox alignment="CENTER" layoutX="10.0" layoutY="198.0" prefHeight="75.0">
+								<HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="198.0" prefHeight="75.0">
 									<children>
 										<Button fx:id="RestartButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Restart">
 											<graphic>
@@ -97,6 +100,9 @@
                                  </styleClass>
 										</Button>
 									</children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
 								</HBox>
 							</children>
 							<padding>

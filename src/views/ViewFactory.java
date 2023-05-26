@@ -16,7 +16,7 @@ public class ViewFactory {
 		createStage(fxmlLoader, "Main Dashboard");
 	}
 
-	// Show Tic Tac Toe Game
+	// Show Tic-Tac-Toe Game
 	public void showTicTacToe(Player player) {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmls/TicTacToe.fxml"));
 		TicTacToeController TicTacToeController = new TicTacToeController(player);
@@ -24,12 +24,20 @@ public class ViewFactory {
 		createStage(fxmlLoader, "Tic-Tac-Toe Game");
 	}
 
-	// Show Tic Tac Toe Game
+	// Show Connect-Four Game
 	public void showConnectFour(Player player) {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmls/ConnectFour.fxml"));
 		ConnectFourController ConnectFourController = new ConnectFourController(player);
 		fxmlLoader.setController(ConnectFourController);
 		createStage(fxmlLoader, "Connect-Four Game");
+	}
+
+	// Show Sudoku Game
+	public void showSudokuGame() {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmls/SudokuGame.fxml"));
+		SudokuController SudokuController = new SudokuController();
+		fxmlLoader.setController(SudokuController);
+		createStage(fxmlLoader, "Sudoku Game");
 	}
 
 	// Generic: Create Stage

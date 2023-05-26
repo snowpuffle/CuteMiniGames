@@ -193,7 +193,7 @@ public class ConnectFourController implements Initializable {
 		playerTurn = false;
 		computerTurn = false;
 
-		// Reset and Clear the Game Board State
+		// Reset and Clear the Game Board
 		gameBoard.startNewBoard();
 		randomizeTurn();
 		removeAllTokenImages();

@@ -57,6 +57,7 @@ public class DashboardController implements Initializable {
 		// "Tic-Tac-Toe" Game Button is Clicked
 		TicTacToeButton.setOnAction(event -> handleTicTacToe());
 		ConnectFourButton.setOnAction(event -> handleConnectFour());
+		SudokuGameButton.setOnAction(event -> handleSudokuGame());
 	}
 
 	// Event: "Tic-Tac-Toe" Button is Clicked
@@ -74,7 +75,7 @@ public class DashboardController implements Initializable {
 		}
 	}
 
-	// Event: "Tic-Tac-Toe" Button is Clicked
+	// Event: "Connect-Four" Button is Clicked
 	private void handleConnectFour() {
 		// Get Name from Name Field
 		String name = NameField.getText().trim();
@@ -87,6 +88,14 @@ public class DashboardController implements Initializable {
 			closeCurrentWindow();
 			Model.getInstance().getViewFactory().showConnectFour(player);
 		}
+	}
+
+	// Event: "Sudoku" Button is Clicked
+	private void handleSudokuGame() {
+		// Create Player and Display Game Frame
+		closeCurrentWindow();
+		Model.getInstance().getViewFactory().showSudokuGame();
+
 	}
 
 	// Validate Player's Name
